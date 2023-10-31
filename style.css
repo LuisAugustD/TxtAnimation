@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1b1919;
+    color: #ffffff;
+}
+
+.txt-animation{
+    font-size: 50px;
+    font-weight: 350;
+}
+
+.txt-animation span{
+    position: relative;
+}
+
+.txt-animation span::before{
+    content: "";
+    color: #1239b8;
+    animation: words 20s infinite;
+}
+
+.txt-animation span::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid #1239b8;
+    right: -10px;
+    animation: cursor 1s infinite, digi 20s steps(15) infinite;
+    width: calc(100% + 15px);
+    background-color: #1b1919;
+}
+
+@keyframes digi {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95%{
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85%{
+        width: calc(100% + 15px);
+    }
+}
+
+@keyframes cursor {
+    0%{
+        border-left: 2px solid #1b1919;
+    }
+}
+
+@keyframes words {
+    0%,20%{
+        content: "em JavaScript?";
+    }
+    21%, 40%{
+        content: "em Python?";
+    }
+    41%, 60%{
+        content: "em C++?";
+    }
+    61%, 80%{
+        content: "em Java?";
+    }
+    81%, 100%{
+        content: "em PHP?";
+    }
+}
